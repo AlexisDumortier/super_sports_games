@@ -1,6 +1,7 @@
 require './lib/games'
 require './lib/event'
 
+system('clear')
 puts "!!! Welcome to the Games!!!  Please enter the year of your games? \n"
 input = gets.chomp
 games = Games.new(input)
@@ -31,7 +32,7 @@ while input != 'c'
     puts "Let's create a new event \n"
     puts "Please enter the name of your event :"
     name_event = gets.chomp
-    puts "Please enter the ages of the participants separated by comma"
+    puts "Please enter the age of the participants separated by comma"
     ages = gets.chomp.split(',')
     age_participants = []
 
@@ -43,11 +44,11 @@ while input != 'c'
     games.add_event(event)
 
   when 'b'
+    puts games.headers
     puts games.all_events_summary
 
   else
     puts "You answer is not allowed in the choices \n"
-    puts "Would you like to ('a') add another event / ('b') see a summary / ('c') exit"
   end
 
   puts "Would you like to ('a') add an event / ('b') see a summary / ('c') exit"
@@ -56,12 +57,3 @@ while input != 'c'
 end
 
 puts "Thank you for participating"
-
-# while user_input != 'exit'
-#
-#
-#
-#
-#
-# input = gets.chomp
-# end
