@@ -1,30 +1,47 @@
 ages = [24, 30, 18, 20, 41]
 
-# Your code here for calculating the standard deviation
+# step 1 - sum all the integers
 
-
-# calculate the average
-
-total1  = 0
-
+total  = 0
 ages.each do |age|
-  total1 += age
+  total += age
 end
 
-average = (total1 / ages.size.to_f)
+# step 2 - find the number of integers in the input array
 
-puts "the average of these numbers is #{average}"
+num_element = ages.size
 
-# sum the square of the differences
+# step 3 - divide the sum of the integers (step 1) by the number of integers (step 2). This is the average (also known as the mean).
 
-total2  = 0
+average = (total / num_element.to_f)
+
+# step 4 - subtract each integer by the average found in step 3
+
+diff_mean_average  = []
 
 ages.each do |age|
-  total2 += (age - average)**2
+  diff_mean_average << (age - average)
 end
 
-puts "the sum of the square of the differences is #{total2}"
+# step 5 - Take the result from step 4 and square each number
 
-sd = Math.sqrt(total2/(ages.size))
+squares =[]
 
-puts "the standard deviation is #{sd}"
+diff_mean_average.each do |num|
+  squares << (num - average)
+end
+
+# step 6 - sum all the numbers from step 5
+
+total_squares  = 0
+squares.each do |square|
+  total_squares += square
+end
+
+# step 7 - divide the result from step 6 by the number of integers (step 2)
+
+temp = total_squares / num_element
+
+# step 8 - divide the result from step 6 by the number of integers (step 2)
+
+sd = Math.sqrt(temp)
